@@ -1,0 +1,33 @@
+{
+  "name": "rpcii",
+  "version": "0.1.0",
+  "description": "A Discord rich presence for Nintendo Wii using RiiConnect24's RiiTag",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenuijtdewilligen/rpcii.git"
+  },
+  "keywords": [
+    "nintendo",
+    "discord",
+    "wii",
+    "riiconnect24",
+    "discord-rich-presence",
+    "riitag"
+  ],
+  "author": "Ruben Uijtdewilligen <ruben@uijtdewilligenbv.nl>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/rubenuijtdewilligen/rpcii/issues"
+  },
+  "homepage": "https://github.com/rubenuijtdewilligen/rpcii#readme",
+  "dependencies": {
+    "@xhayper/discord-rpc": "^1.0.13",
+    "node-fetch": "^3.3.0"
+  }
+}
