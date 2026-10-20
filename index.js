@@ -14,29 +14,32 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import fetch from 'node-fetch';
-import fs from 'fs';
-import { Client } from '@xhayper/discord-rpc';
+import fetch from "node-fetch";
+import fs from "fs";
+import { Client } from "@xhayper/discord-rpc";
 
 const client = new Client({
-  clientId: '939928903315771452',
+  clientId: "939928903315771452",
 });
 
-client.on('ready', () => {
-  fs.readFile('wiitdb.txt', 'utf8', async (err, data) => {
+client.on("ready", () => {
+  // NOTE: wiitdb.txt is not in this repo anymore. It is property of GameTDB and can be downloaded from https://www.gametdb.com/wiitdb.txt.
+  fs.readFile("wiitdb.txt", "utf8", async (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
 
-    const response = await fetch('https://tag.rc24.xyz/api/user/708412162586181632');
+    const response = await fetch(
+      "https://tag.rc24.xyz/api/user/708412162586181632",
+    );
     const tag_data = await response.json();
 
     client.user.setActivity({
       state: data
-        .split('\r\n')
+        .split("\r\n")
         .find((el) => el.includes(tag_data.game_data.last_played.game_id))
-        .split(' = ')[1]
+        .split(" = ")[1]
         .toString(),
       startTimestamp: tag_data.game_data.last_played.time,
       largeImageKey: `https://art.gametdb.com/wii/cover/US/${tag_data.game_data.last_played.game_id}.png`,
