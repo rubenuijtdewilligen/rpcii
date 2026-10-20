@@ -19,7 +19,7 @@ import fs from "fs";
 import { Client } from "@xhayper/discord-rpc";
 
 const client = new Client({
-  clientId: "939928903315771452",
+  clientId: "YOUR_DISCORD_CLIENT_ID",
 });
 
 client.on("ready", () => {
@@ -31,7 +31,7 @@ client.on("ready", () => {
     }
 
     const response = await fetch(
-      "https://tag.rc24.xyz/api/user/708412162586181632",
+      "https://tag.rc24.xyz/api/user/YOUR_RIITAG_USER_ID",
     );
     const tag_data = await response.json();
 
